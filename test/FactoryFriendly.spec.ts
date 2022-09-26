@@ -12,7 +12,7 @@ describe("Module works with factory", () => {
   const baseSetup = deployments.createFixture(async () => {
     await deployments.fixture();
     const Factory = await hre.ethers.getContractFactory("ModuleProxyFactory");
-    const AMBModule = await hre.ethers.getContractFactory("ScopeGuard");
+    const AMBModule = await hre.ethers.getContractFactory("OwnerGuard");
     const factory = await Factory.deploy();
 
     const masterCopy = await AMBModule.deploy(AddressOne);
@@ -49,7 +49,7 @@ describe("Module works with factory", () => {
     );
 
     const newProxy = await hre.ethers.getContractAt(
-      "ScopeGuard",
+      "OwnerGuard",
       newProxyAddress
     );
     expect(await newProxy.owner()).to.be.eq(owner.address);
