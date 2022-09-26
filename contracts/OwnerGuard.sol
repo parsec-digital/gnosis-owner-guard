@@ -1,9 +1,8 @@
 // SPDX-License-Identifier: LGPL-3.0-only
-pragma solidity ^0.8.6;
+pragma solidity ^0.8.17;
 
 import "@gnosis.pm/zodiac/contracts/guard/BaseGuard.sol";
 import "@gnosis.pm/zodiac/contracts/factory/FactoryFriendly.sol";
-import "hardhat/console.sol";
 
 contract OwnerGuard is FactoryFriendly, BaseGuard {
     event SetAccountBricked(address account, bool bricked);
